@@ -1,10 +1,8 @@
 pipeline {
     agent any
-
+    
     tools {
-       
         maven 'Maven' 
-        
         jdk 'JDK17'
     }
 
@@ -26,5 +24,4 @@ pipeline {
                 sh 'mvn test'
             }
         }
-
-   
+    }
