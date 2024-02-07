@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     tools {
         maven 'Maven' 
         jdk 'JDK17'
@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-
+                // Assuming the Jenkins job is setup to checkout the SCM,
+                // this will checkout the code for the branch that triggered the build
+                checkout scm
             }
         }
 
@@ -25,3 +27,16 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo 'Build succeeded.'
+        }
+        failure {
+            echo 'Build failed.'
+        }
+        always {
+            echo 'Pipeline completed.'
+        }
+    }
+}
