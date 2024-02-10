@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave_debian' }
+    agent { label 'slave_ubuntu' }
 
     tools {
         maven 'Maven' 
